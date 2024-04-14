@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RBXStudio.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RBXStudio.Views.MainWindow"
+        x:CompileBindings="False"
+        xmlns:i="https://github.com/projektanker/icons.avalonia"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="RBXStudio">
+
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+  <Grid RowDefinitions="Auto,*" >
+    <Menu Background="{DynamicResource SystemControlBackgroundAccentBrush}">
+      <MenuItem></MenuItem>
+    </Menu>
+    <Grid Grid.Row="1" ColumnDefinitions="Auto,Auto,*">
+      <ListBox ItemsSource="{Binding ExpandedItems}"
+                    Background="{DynamicResource SystemControlBackgroundBaseLowBrush}" 
+                    MinWidth="100" >
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <Grid ColumnDefinitions="Auto,Auto,*">
+              <Border Width="{Binding Margin}" />
+              <ToggleButton Grid.Column="1" i:Attached.Icon="fa-caret-right" Margin="2,0,5,0" IsChecked="{Binding Expanded, Mode=TwoWay}"/>
+              <TextBlock Grid.Column="2" Text="{Binding Name}" VerticalAlignment="Center"/>
+            </Grid>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+      <GridSplitter Grid.Column="1" Width="10" Background="{DynamicResource SystemControlBackgroundBaseMediumBrush}"/>
+    </Grid>
+  </Grid>
+</Window>

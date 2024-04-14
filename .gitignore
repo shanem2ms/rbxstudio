@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+.DS_Store
+.vs/
+.vscode/
+
+*.rbxl
+
+bin
+obj
+packages

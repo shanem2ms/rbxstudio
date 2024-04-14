@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "RBXStudio": {
+      "commandName": "Project",
+      "workingDirectory": "$(SolutionDir)"
+    }
+  }
+}
