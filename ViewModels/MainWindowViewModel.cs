@@ -1,4 +1,5 @@
 ﻿using RBXStudio.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace RBXStudio.ViewModels
         public class Item
         {
             RBXItem rbxitem;
-            public string Class => rbxitem.rbclass;
+            public RBXClass Class => rbxitem.rbclass;
             public string Name => rbxitem.Name;
             bool expanded = false;
 

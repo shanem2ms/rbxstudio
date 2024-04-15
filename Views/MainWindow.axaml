@@ -10,12 +10,13 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="RBXStudio">
-
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainWindowViewModel/>
-  </Design.DataContext>
+  <Window.Styles>
+        <!-- Reduce ListBoxItem vertical size by adjusting padding and margin -->
+        <Style Selector="ListBoxItem">
+            <Setter Property="Padding" Value="4,2"/> <!-- less vertical padding -->
+            <Setter Property="Margin" Value="2"/> <!-- optional, adjust as needed -->
+        </Style>
+    </Window.Styles>
   <Grid RowDefinitions="Auto,*" >
     <Menu Background="{DynamicResource SystemControlBackgroundAccentBrush}">
       <MenuItem></MenuItem>
